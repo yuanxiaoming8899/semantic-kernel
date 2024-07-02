@@ -1,153 +1,120 @@
-# Semantic Kernel
-
-## Status
-
- - Python <br/>
-[![Python package](https://img.shields.io/pypi/v/semantic-kernel)](https://pypi.org/project/semantic-kernel/)
- - .NET <br/>
-[![Nuget package](https://img.shields.io/nuget/vpre/Microsoft.SemanticKernel)](https://www.nuget.org/packages/Microsoft.SemanticKernel/)[![dotnet Docker](https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-docker.yml/badge.svg?branch=main)](https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-docker.yml)[![dotnet Windows](https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-windows.yml/badge.svg?branch=main)](https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-windows.yml)
- - Java <br/>
-[![Java CICD Builds](https://github.com/microsoft/semantic-kernel/actions/workflows/java-build.yml/badge.svg?branch=java-development)](https://github.com/microsoft/semantic-kernel/actions/workflows/java-build.yml)[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.microsoft.semantic-kernel/semantickernel-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.microsoft.semantic-kernel/semantickernel-api)
-
-## Overview
-[![License: MIT](https://img.shields.io/github/license/microsoft/semantic-kernel)](https://github.com/microsoft/semantic-kernel/blob/main/LICENSE)
-[![Discord](https://img.shields.io/discord/1063152441819942922?label=Discord&logo=discord&logoColor=white&color=d82679)](https://aka.ms/SKDiscord)
-
-[Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
-is an SDK that integrates Large Language Models (LLMs) like
-[OpenAI](https://platform.openai.com/docs/introduction),
-[Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service),
-and [Hugging Face](https://huggingface.co/)
-with conventional programming languages like C#, Python, and Java. Semantic Kernel achieves this
-by allowing you to define [plugins](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/plugins)
-that can be chained together
-in just a [few lines of code](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/chaining-functions?tabs=Csharp#using-the-runasync-method-to-simplify-your-code).
-
-What makes Semantic Kernel _special_, however, is its ability to _automatically_ orchestrate
-plugins with AI. With Semantic Kernel
-[planners](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/planner), you
-can ask an LLM to generate a plan that achieves a user's unique goal. Afterwards,
-Semantic Kernel will execute the plan for the user.
-
-#### Please star the repo to show your support for this project!
-
-![Orchestrating plugins with planner](https://learn.microsoft.com/en-us/semantic-kernel/media/kernel-infographic.png)
-
-
-
-## Getting started with Semantic Kernel
-
-The Semantic Kernel SDK is available in C#, Python, and Java. To get started, choose your preferred language below. See the [Feature Matrix](https://learn.microsoft.com/en-us/semantic-kernel/get-started/supported-languages) to see a breakdown of
-feature parity between our currently supported languages.
-
-<table width=100%>
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语义核心</font></font></h1><a id="user-content-semantic-kernel" class="anchor" aria-label="永久链接：语义内核" href="#semantic-kernel"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地位</font></font></h2><a id="user-content-status" class="anchor" aria-label="永久链接：状态" href="#status"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python</font></font><br>
+<a href="https://pypi.org/project/semantic-kernel/" rel="nofollow"><img src="https://camo.githubusercontent.com/eb5958246794100e79ab3022e067a9b1983e99dc5fb85fbeecaf20b78f54ddda/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f73656d616e7469632d6b65726e656c" alt="Python 包" data-canonical-src="https://img.shields.io/pypi/v/semantic-kernel" style="max-width: 100%;"></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。网</font></font><br>
+<a href="https://www.nuget.org/packages/Microsoft.SemanticKernel/" rel="nofollow"><img src="https://camo.githubusercontent.com/c554ea8fd8af469df78b3908c42399cfb9f63bf09f07ed6aa049acf1e2d31309/68747470733a2f2f696d672e736869656c64732e696f2f6e756765742f767072652f4d6963726f736f66742e53656d616e7469634b65726e656c" alt="Nuget 包" data-canonical-src="https://img.shields.io/nuget/vpre/Microsoft.SemanticKernel" style="max-width: 100%;"></a><a href="https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-docker.yml"><img src="https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-docker.yml/badge.svg?branch=main" alt="dotnet Docker" style="max-width: 100%;"></a><a href="https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-windows.yml"><img src="https://github.com/microsoft/semantic-kernel/actions/workflows/dotnet-ci-windows.yml/badge.svg?branch=main" alt="点网 Windows" style="max-width: 100%;"></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Java</font></font><br>
+<a href="https://github.com/microsoft/semantic-kernel/actions/workflows/java-build.yml"><img src="https://github.com/microsoft/semantic-kernel/actions/workflows/java-build.yml/badge.svg?branch=java-development" alt="Java CICD 构建" style="max-width: 100%;"></a><a href="https://maven-badges.herokuapp.com/maven-central/com.microsoft.semantic-kernel/semantickernel-api" rel="nofollow"><img src="https://camo.githubusercontent.com/cd5265b7dfae001a18c4e1276acf9004886b3466cecf8a2c8857e2f7dfc3e941/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6d6963726f736f66742e73656d616e7469632d6b65726e656c2f73656d616e7469636b65726e656c2d6170692f62616467652e737667" alt="Maven 中心" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.microsoft.semantic-kernel/semantickernel-api/badge.svg" style="max-width: 100%;"></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></h2><a id="user-content-overview" class="anchor" aria-label="固定链接：概述" href="#overview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://github.com/microsoft/semantic-kernel/blob/main/LICENSE"><img src="https://camo.githubusercontent.com/739090be39360908e54f3f855af10fa8a368992da67772514767f2340ce63dc4/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f6d6963726f736f66742f73656d616e7469632d6b65726e656c" alt="许可证：MIT" data-canonical-src="https://img.shields.io/github/license/microsoft/semantic-kernel" style="max-width: 100%;"></a>
+<a href="https://aka.ms/SKDiscord" rel="nofollow"><img src="https://camo.githubusercontent.com/8d3cbbec5b72e7dce145a1736c86762dd58ef88d56de9f221668ba3f4e520421/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f313036333135323434313831393934323932323f6c6162656c3d446973636f7264266c6f676f3d646973636f7264266c6f676f436f6c6f723d776869746526636f6c6f723d643832363739" alt="不和谐" data-canonical-src="https://img.shields.io/discord/1063152441819942922?label=Discord&amp;logo=discord&amp;logoColor=white&amp;color=d82679" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://learn.microsoft.com/en-us/semantic-kernel/overview/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Semantic Kernel</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+是一个 SDK，它将
+</font></font><a href="https://platform.openai.com/docs/introduction" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenAI</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、
+ </font></font><a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Azure OpenAI</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://huggingface.co/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hugging Face</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等大型语言模型 (LLM) 与 C#、Python 和 Java 等传统编程语言集成在一起。Semantic Kernel 通过允许您定义
+只需几</font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/chaining-functions?tabs=Csharp#using-the-runasync-method-to-simplify-your-code" rel="nofollow"><font style="vertical-align: inherit;">行代码即可链接在一起的</font></a></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/plugins" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+来实现这一点</font><font style="vertical-align: inherit;">。</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/chaining-functions?tabs=Csharp#using-the-runasync-method-to-simplify-your-code" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然而， Semantic Kernel 的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特别之处</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在于它能够</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与 AI 协调插件。借助 Semantic Kernel
+</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/planner" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">规划器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，您可以要求 LLM 生成实现用户独特目标的计划。之后，Semantic Kernel 将为用户执行该计划。</font></font></p>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请为该 repo 加注星标，以表明您对该项目的支持！</font></font></h4><a id="user-content-please-star-the-repo-to-show-your-support-for-this-project" class="anchor" aria-label="永久链接：请为该 repo 加注星标，以显示您对该项目的支持！" href="#please-star-the-repo-to-show-your-support-for-this-project"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4a7cf302109121e1464bd8eb46f0b65a27b1ceb10f85f206ea9a2e44c1f50e1f/68747470733a2f2f6c6561726e2e6d6963726f736f66742e636f6d2f656e2d75732f73656d616e7469632d6b65726e656c2f6d656469612f6b65726e656c2d696e666f677261706869632e706e67"><img src="https://camo.githubusercontent.com/4a7cf302109121e1464bd8eb46f0b65a27b1ceb10f85f206ea9a2e44c1f50e1f/68747470733a2f2f6c6561726e2e6d6963726f736f66742e636f6d2f656e2d75732f73656d616e7469632d6b65726e656c2f6d656469612f6b65726e656c2d696e666f677261706869632e706e67" alt="使用规划器编排插件" data-canonical-src="https://learn.microsoft.com/en-us/semantic-kernel/media/kernel-infographic.png" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语义内核入门</font></font></h2><a id="user-content-getting-started-with-semantic-kernel" class="anchor" aria-label="永久链接：开始使用语义内核" href="#getting-started-with-semantic-kernel"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Semantic Kernel SDK 有 C#、Python 和 Java 版本。要开始使用，请在下面选择您的首选语言。请参阅</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/get-started/supported-languages" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能矩阵</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，查看我们当前支持的语言之间的功能对比明细。</font></font></p>
+<table width="100%">
   <tbody>
     <tr>
       <td>
-        <img align="left" width=52px src="https://user-images.githubusercontent.com/371009/230673036-fad1e8e6-5d48-49b1-a9c1-6f9834e0d165.png">
-        <div>
-          <a href="dotnet/README.md">Using Semantic Kernel in C#</a> &nbsp<br/>
+        <a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/371009/230673036-fad1e8e6-5d48-49b1-a9c1-6f9834e0d165.png"><img align="left" width="52px" src="https://user-images.githubusercontent.com/371009/230673036-fad1e8e6-5d48-49b1-a9c1-6f9834e0d165.png" style="max-width: 100%;"></a>
+        <div dir="auto">
+          <a href="/microsoft/semantic-kernel/blob/main/dotnet/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 C# 中使用语义内核</font></font></a> &nbsp;<br>
         </div>
       </td>
       <td>
-        <img align="left" width=52px src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-        <div>
-          <a href="python/README.md">Using Semantic Kernel in Python</a>
+        <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"><img align="left" width="52px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" style="max-width: 100%;"></a>
+        <div dir="auto">
+          <a href="/microsoft/semantic-kernel/blob/main/python/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Python 中使用语义内核</font></font></a>
         </div>
       </td>
       <td>
-        <img align="left" width=52px height=52px src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java logo">
-        <div>
-          <a href="https://github.com/microsoft/semantic-kernel/blob/main/java/README.md">Using Semantic Kernel in Java</a>
+        <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fedcb58d84245ac57f1243d82c8b86b69a1b539c9d4525509924e6ec73b2b19c/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f656e2f332f33302f4a6176615f70726f6772616d6d696e675f6c616e67756167655f6c6f676f2e737667"><img align="left" width="52px" height="52px" src="https://camo.githubusercontent.com/fedcb58d84245ac57f1243d82c8b86b69a1b539c9d4525509924e6ec73b2b19c/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f656e2f332f33302f4a6176615f70726f6772616d6d696e675f6c616e67756167655f6c6f676f2e737667" alt="Java 徽标" data-canonical-src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" style="max-width: 100%;"></a>
+        <div dir="auto">
+          <a href="https://github.com/microsoft/semantic-kernel/blob/main/java/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Java 中使用语义内核</font></font></a>
         </div>
       </td>
     </tr>
   </tbody>
 </table>
-
-The quickest way to get started with the basics is to get an API key
-from either OpenAI or Azure OpenAI and to run one of the C#, Python, and Java console applications/scripts below.
-
-### For C#:
-
-1. Create a new console app.
-2. Add the semantic kernel nuget [Microsoft.SemanticKernel](https://www.nuget.org/packages/Microsoft.SemanticKernel/).
-3. Copy the code from [here](dotnet/README.md) into the app `Program.cs` file.
-4. Replace the configuration placeholders for API key and other params with your key and settings.
-5. Run with `F5` or `dotnet run`
-
-### For Python:
-
-1. Install the pip package: `python -m pip install semantic-kernel`.
-2. Create a new script e.g. `hello-world.py`.
-3. Store your API key and settings in an `.env` file as described [here](python/README.md).
-4. Copy the code from [here](python/README.md) into the `hello-world.py` script.
-5. Run the python script.
-
-### For Java:
-
-1. Clone the repository: `git clone https://github.com/microsoft/semantic-kernel.git`
-    1. To access the latest Java code, clone and checkout the Java development branch: `git clone -b java-development https://github.com/microsoft/semantic-kernel.git`
-2. Follow the instructions [here](https://github.com/microsoft/semantic-kernel/blob/main/java/samples/sample-code/README.md)
-
-## Learning how to use Semantic Kernel
-
-The fastest way to learn how to use Semantic Kernel is with our C# and Python Jupyter notebooks. These notebooks
-demonstrate how to use Semantic Kernel with code snippets that you can run with a push of a button.
-
-- [Getting Started with C# notebook](dotnet/notebooks/00-getting-started.ipynb)
-- [Getting Started with Python notebook](python/samples/getting_started/00-getting-started.ipynb)
-
-Once you've finished the getting started notebooks, you can then check out the main walkthroughs
-on our Learn site. Each sample comes with a completed C# and Python project that you can run locally.
-
-1. 📖 [Overview of the kernel](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/)
-1. 🔌 [Understanding AI plugins](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/plugins)
-1. 👄 [Creating semantic functions](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/semantic-functions)
-1. 💽 [Creating native functions](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/native-functions)
-1. ⛓️ [Chaining functions together](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/chaining-functions)
-1. 🤖 [Auto create plans with planner](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/planner)
-1. 💡 [Create and run a ChatGPT plugin](https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/chatgpt-plugins)
-
-Finally, refer to our API references for more details on the C# and Python APIs:
-
-- [C# API reference](https://learn.microsoft.com/en-us/dotnet/api/microsoft.semantickernel?view=semantic-kernel-dotnet)
-- Python API reference (coming soon)
-- Java API reference (coming soon)
-
-## Join the community
-
-We welcome your contributions and suggestions to SK community! One of the easiest
-ways to participate is to engage in discussions in the GitHub repository.
-Bug reports and fixes are welcome!
-
-For new features, components, or extensions, please open an issue and discuss with
-us before sending a PR. This is to avoid rejection as we might be taking the core
-in a different direction, but also to consider the impact on the larger ecosystem.
-
-To learn more and get started:
-
-- Read the [documentation](https://aka.ms/sk/learn)
-- Learn how to [contribute](https://learn.microsoft.com/en-us/semantic-kernel/get-started/contributing) to the project
-- Join the [Discord community](https://aka.ms/SKDiscord)
-- Attend [regular office hours and SK community events](COMMUNITY.md)
-- Follow the team on our [blog](https://aka.ms/sk/blog)
-
-## Contributor Wall of Fame
-
-[![semantic-kernel contributors](https://contrib.rocks/image?repo=microsoft/semantic-kernel)](https://github.com/microsoft/semantic-kernel/graphs/contributors)
-
-## Code of Conduct
-
-This project has adopted the
-[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the
-[Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-or contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
-with any additional questions or comments.
-
-## License
-
-Copyright (c) Microsoft Corporation. All rights reserved.
-
-Licensed under the [MIT](LICENSE) license.
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始基础知识的最快方法是从 OpenAI 或 Azure OpenAI 获取 API 密钥，并运行下面其中一个 C#、Python 和 Java 控制台应用程序/脚本。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于 C#：</font></font></h3><a id="user-content-for-c" class="anchor" aria-label="永久链接：对于 C#：" href="#for-c"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建一个新的控制台应用程序。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加语义内核 nuget </font></font><a href="https://www.nuget.org/packages/Microsoft.SemanticKernel/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft.SemanticKernel</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将代码从</font></font><a href="/microsoft/semantic-kernel/blob/main/dotnet/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这里</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">复制到应用程序</font></font><code>Program.cs</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件中。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用您的密钥和设置替换 API 密钥和其他参数的配置占位符。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font><code>F5</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或运行</font></font><code>dotnet run</code></li>
+</ol>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于 Python：</font></font></h3><a id="user-content-for-python" class="anchor" aria-label="永久链接：对于 Python：" href="#for-python"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 pip 包：</font></font><code>python -m pip install semantic-kernel</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建一个新脚本例如</font></font><code>hello-world.py</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><code>.env</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按照</font></font><a href="/microsoft/semantic-kernel/blob/main/python/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此处</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所述将您的 API 密钥和设置存储在文件中</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="/microsoft/semantic-kernel/blob/main/python/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将这里</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的代码复制</font><font style="vertical-align: inherit;">到脚本中</font></font><code>hello-world.py</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行 python 脚本。</font></font></li>
+</ol>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于 Java：</font></font></h3><a id="user-content-for-java" class="anchor" aria-label="永久链接：对于 Java：" href="#for-java"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克隆存储库：</font></font><code>git clone https://github.com/microsoft/semantic-kernel.git</code>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要访问最新的 Java 代码，请克隆并检出 Java 开发分支：</font></font><code>git clone -b java-development https://github.com/microsoft/semantic-kernel.git</code></li>
+</ol>
+</li>
+<li><font style="vertical-align: inherit;"><a href="https://github.com/microsoft/semantic-kernel/blob/main/java/samples/sample-code/README.md"><font style="vertical-align: inherit;">按照此处的</font></a><font style="vertical-align: inherit;">说明操作</font></font><a href="https://github.com/microsoft/semantic-kernel/blob/main/java/samples/sample-code/README.md"><font style="vertical-align: inherit;"></font></a></li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">学习如何使用语义内核</font></font></h2><a id="user-content-learning-how-to-use-semantic-kernel" class="anchor" aria-label="永久链接：学习如何使用语义内核" href="#learning-how-to-use-semantic-kernel"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">学习如何使用语义内核的最快方法是使用我们的 C# 和 Python Jupyter 笔记本。这些笔记本演示了如何使用语义内核和代码片段，只需按一下按钮即可运行。</font></font></p>
+<ul dir="auto">
+<li><a href="/microsoft/semantic-kernel/blob/main/dotnet/notebooks/00-getting-started.ipynb"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">C# 笔记本入门</font></font></a></li>
+<li><a href="/microsoft/semantic-kernel/blob/main/python/samples/getting_started/00-getting-started.ipynb"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python 笔记本入门</font></font></a></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">完成入门笔记本后，您可以查看我们学习网站上的主要演练。每个示例都附带一个完整的 C# 和 Python 项目，您可以在本地运行。</font></font></p>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📖</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内核概述</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔌</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/plugins" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解 AI 插件</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">👄</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/semantic-functions" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建语义函数</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">💽</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/native-functions" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建本机函数</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">⛓️</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/chaining-functions" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将函数链接在一起</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🤖</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/planner" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用规划器自动创建计划</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">💡</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/chatgpt-plugins" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建并运行 ChatGPT 插件</font></font></a></li>
+</ol>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最后，请参阅我们的 API 参考，了解有关 C# 和 Python API 的更多详细信息：</font></font></p>
+<ul dir="auto">
+<li><a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.semantickernel?view=semantic-kernel-dotnet" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">C# API 参考</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python API 参考（即将推出）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Java API 参考（即将推出）</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入社区</font></font></h2><a id="user-content-join-the-community" class="anchor" aria-label="永久链接：加入社区" href="#join-the-community"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎您为 SK 社区做出贡献并提出建议！最简单的参与方式之一就是参与 GitHub 存储库中的讨论。欢迎报告错误并修复问题！</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于新功能、组件或扩展，请在发送 PR 之前打开问题并与我们讨论。这是为了避免遭到拒绝，因为我们可能会将核心带向不同的方向，同时也要考虑对更大生态系统的影响。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要了解更多信息并开始使用：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阅读</font></font><a href="https://aka.ms/sk/learn" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解如何</font><font style="vertical-align: inherit;">为项目</font></font><a href="https://learn.microsoft.com/en-us/semantic-kernel/get-started/contributing" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">做出贡献</font></font></a><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入</font></font><a href="https://aka.ms/SKDiscord" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Discord 社区</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参加</font></font><a href="/microsoft/semantic-kernel/blob/main/COMMUNITY.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">常规办公时间和 SK 社区活动</font></font></a></li>
+<li><font style="vertical-align: inherit;"><a href="https://aka.ms/sk/blog" rel="nofollow"><font style="vertical-align: inherit;">在我们的博客</font></a><font style="vertical-align: inherit;">上关注团队</font></font><a href="https://aka.ms/sk/blog" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献者荣誉墙</font></font></h2><a id="user-content-contributor-wall-of-fame" class="anchor" aria-label="永久链接：贡献者荣誉墙" href="#contributor-wall-of-fame"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://github.com/microsoft/semantic-kernel/graphs/contributors"><img src="https://camo.githubusercontent.com/7fb4c43403f20fa119211279c52d458a587d00ab901b85f6b8f4d938e8c81fcb/68747470733a2f2f636f6e747269622e726f636b732f696d6167653f7265706f3d6d6963726f736f66742f73656d616e7469632d6b65726e656c" alt="语义内核贡献者" data-canonical-src="https://contrib.rocks/image?repo=microsoft/semantic-kernel" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">行为守则</font></font></h2><a id="user-content-code-of-conduct" class="anchor" aria-label="永久链接：行为准则" href="#code-of-conduct"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该项目已采用
+</font></font><a href="https://opensource.microsoft.com/codeofconduct/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft 开放源代码行为准则</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。有关更多信息，请参阅
+</font></font><a href="https://opensource.microsoft.com/codeofconduct/faq/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">行为准则常见问题解答</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+，或联系</font></font><a href="mailto:opencode@microsoft.com"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">opencode@microsoft.com</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+咨询其他问题或意见。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有 (c) Microsoft Corporation。保留所有权利。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根据</font></font><a href="/microsoft/semantic-kernel/blob/main/LICENSE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MIT</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证授权。</font></font></p>
+</article></div>
